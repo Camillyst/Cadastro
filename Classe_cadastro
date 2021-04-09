@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+
+public class Cadastro {
+	
+	private ArrayList<String> cadastros = new ArrayList<String>();
+    
+	public void setNome(String nome) {
+		cadastros.add(nome);
+	}
+	
+	public void setCategoria(String categoria) {
+		cadastros.add(categoria);
+	}
+	
+	public void setDescricao(String descricao) {
+		cadastros.add(descricao);
+	}
+	
+	public void mostra() {
+		System.out.printf("\nExibição dos dados que foram Cadastrados.\n");
+	    int n = cadastros.size();
+	    for (int i=0; i<n; i++) {
+	      System.out.printf(i +"- "+ cadastros.get(i)+ "\n");
+	    }
+	}
+	
+	public void removeElemento(int a) {
+		try {
+		      // [ D ] remove o i-ésimo contato da agenda
+		      cadastros.remove(a);
+		    } catch (IndexOutOfBoundsException e) {
+		        // exceção lançada para indicar que um índice (i)
+		        // está fora do intervalo válido (de 0 até agenda.size()-1)
+		        System.out.printf("\nErro: posição inválida (%s).",
+		          e.getMessage());
+		    }
+	}
+	
+	public void removeCadastro() {
+		cadastros.clear();
+	}
+	
+	public void alterarElemento(int a, String b) {
+		cadastros.set(a, b);
+	}
+}
